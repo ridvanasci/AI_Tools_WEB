@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Auto-generates an AI tool review article using Claude API
+Auto-generates an AI tool review article using Gemini API
 and saves it as a Hugo markdown file.
 """
 
-import anthropic
+import google.generativeai as genai
+import os
 import datetime
 import random
 import re
@@ -48,13 +49,10 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9-]", "", text.lower().replace(" ", "-").replace(".", "-"))
 
 def generate_article(tool_name: str, niche: str) -> str:
-    client = anthropic.Anthropic()
-    message = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=1500,
-        messages=[{"role": "user", "content": PROMPT_TEMPLATE.format(tool_name=tool_name, niche=niche)}]
-    )
-    return message.content[0].text
+    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+    model = genai.GenerativeModel("gemini-2.0-flash")
+    response = model.generate_content(PROMPT_TEMPLATE.format(tool_name=tool_name, niche=niche))
+    return response.text
 
 def save_article(tool_name: str, slug: str, content: str) -> Path:
     today = datetime.date.today().isoformat()
