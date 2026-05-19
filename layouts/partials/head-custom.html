@@ -3,3 +3,7 @@
 
 <!-- Affiliate disclosure meta -->
 <meta name="affiliate-disclosure" content="This site contains affiliate links. We may earn a commission at no extra cost to you.">
+
+<!-- Custom styles -->
+{{ $css := resources.Get "css/custom.css" | minify }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
