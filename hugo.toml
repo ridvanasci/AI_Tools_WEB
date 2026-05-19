@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "AI Tools Reviews & Comparisons"
 theme = "PaperMod"
 paginate = 10
+ignoreFiles = ["README\\.md"]
 
 [params]
   description = "Honest AI tool reviews, comparisons, and guides for freelancers, agencies, and developers."
