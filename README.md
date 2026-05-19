@@ -18,7 +18,7 @@ baseURL = "https://YOUR_USERNAME.github.io/AI_Tools_WEB/"
 
 ### 2. Add Secrets to GitHub
 Go to **Settings → Secrets → Actions** and add:
-- `ANTHROPIC_API_KEY` — your Claude API key from console.anthropic.com
+- `GROQ_API_KEY` — your Groq API key from console.groq.com
 
 ### 3. Enable GitHub Pages
 Go to **Settings → Pages** and set source to `gh-pages` branch.
