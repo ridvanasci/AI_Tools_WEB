@@ -1,0 +1,6 @@
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<!-- Custom styles -->
+{{ $css := resources.Get "css/custom.css" | minify }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
