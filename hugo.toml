@@ -1,0 +1,40 @@
+baseURL = "https://YOUR_USERNAME.github.io/AI_Tools_WEB/"
+languageCode = "en-us"
+title = "AI Tools Reviews & Comparisons"
+theme = "PaperMod"
+paginate = 10
+
+[params]
+  description = "Honest AI tool reviews, comparisons, and guides for freelancers, agencies, and developers."
+  author = "AI Tools Hub"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  defaultTheme = "auto"
+
+  [params.homeInfoParams]
+    Title = "Best AI Tools Reviews 2026"
+    Content = "Unbiased reviews and comparisons of the best AI tools for writing, coding, design, and productivity."
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+[menu]
+  [[menu.main]]
+    name = "Reviews"
+    url = "/reviews/"
+    weight = 1
+  [[menu.main]]
+    name = "Comparisons"
+    url = "/comparisons/"
+    weight = 2
+  [[menu.main]]
+    name = "Best Lists"
+    url = "/best/"
+    weight = 3
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
