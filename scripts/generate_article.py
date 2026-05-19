@@ -4,7 +4,7 @@ Auto-generates an AI tool review article using Gemini API
 and saves it as a Hugo markdown file.
 """
 
-import google.generativeai as genai
+from google import genai
 import os
 import datetime
 import random
@@ -49,9 +49,11 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9-]", "", text.lower().replace(" ", "-").replace(".", "-"))
 
 def generate_article(tool_name: str, niche: str) -> str:
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-2.0-flash")
-    response = model.generate_content(PROMPT_TEMPLATE.format(tool_name=tool_name, niche=niche))
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    response = client.models.generate_content(
+        model="gemini-1.5-flash",
+        contents=PROMPT_TEMPLATE.format(tool_name=tool_name, niche=niche)
+    )
     return response.text
 
 def save_article(tool_name: str, slug: str, content: str) -> Path:
