@@ -51,7 +51,7 @@ def slugify(text: str) -> str:
 def generate_article(tool_name: str, niche: str) -> str:
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
     response = client.models.generate_content(
-        model="gemini-1.5-flash",
+        model="gemini-2.0-flash-lite",
         contents=PROMPT_TEMPLATE.format(tool_name=tool_name, niche=niche)
     )
     return response.text
