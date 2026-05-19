@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Auto-generates an AI tool review article using Gemini API
+Auto-generates an AI tool review article using Groq API
 and saves it as a Hugo markdown file.
 """
 
-from google import genai
+from groq import Groq
 import os
 import datetime
 import random
@@ -49,12 +49,13 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9-]", "", text.lower().replace(" ", "-").replace(".", "-"))
 
 def generate_article(tool_name: str, niche: str) -> str:
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-lite",
-        contents=PROMPT_TEMPLATE.format(tool_name=tool_name, niche=niche)
+    client = Groq(api_key=os.environ["GROQ_API_KEY"])
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": PROMPT_TEMPLATE.format(tool_name=tool_name, niche=niche)}],
+        max_tokens=1500,
     )
-    return response.text
+    return response.choices[0].message.content
 
 def save_article(tool_name: str, slug: str, content: str) -> Path:
     today = datetime.date.today().isoformat()
