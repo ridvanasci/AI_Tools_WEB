@@ -3,6 +3,8 @@ name: Daily Article + Deploy
 on:
   schedule:
     - cron: "0 8 * * *"   # Her gün 08:00 UTC
+  push:
+    branches: [master]    # Her push'ta da çalış
   workflow_dispatch:        # Manuel tetikleme için
 
 permissions:
