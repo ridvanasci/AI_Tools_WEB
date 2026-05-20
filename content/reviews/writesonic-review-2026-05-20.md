@@ -4,6 +4,10 @@ date: 2026-05-20
 description: "In-depth Writesonic review after hands-on testing. Pricing, features, pros & cons, and best alternatives."
 tags: ["writesonic", "ai tools", "review"]
 categories: ["reviews"]
+cover:
+  image: "https://picsum.photos/seed/10/1200/630"
+  alt: "Writesonic Review"
+  relative: false
 ---
 
 {{< affiliate-disclosure >}}

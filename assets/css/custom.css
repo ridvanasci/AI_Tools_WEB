@@ -130,8 +130,7 @@ body { font-family: 'Inter', sans-serif; }
 }
 
 /* ── CATEGORY BADGES ── */
-.post-entry .entry-header::before {
-  content: attr(data-category);
+.post-entry .entry-footer span:first-child::before {
   display: inline-block;
   background: linear-gradient(135deg, #6c63ff, #f857a6);
   color: white;
@@ -139,14 +138,54 @@ body { font-family: 'Inter', sans-serif; }
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 12px;
-  margin-bottom: 8px;
+  margin-right: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  vertical-align: middle;
 }
 
-.post-entry[data-category="reviews"] .entry-header::before { content: "📝 Review"; }
-.post-entry[data-category="comparisons"] .entry-header::before { content: "⚖️ Comparison"; }
-.post-entry[data-category="best"] .entry-header::before { content: "⭐ Best List"; }
+/* Category colors */
+.post-entry .entry-content p:first-child { display: none; }
+
+/* Review badge */
+a[href*="/reviews/"] ~ article .entry-footer::before,
+.post-entry:has(a[href*="/reviews/"]) .entry-header::after {
+  content: "📝 Review";
+  display: inline-block;
+  background: linear-gradient(135deg, #6c63ff, #818cf8);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+/* Comparison badge */
+.post-entry:has(a[href*="/comparisons/"]) .entry-header::after {
+  content: "⚖️ Comparison";
+  display: inline-block;
+  background: linear-gradient(135deg, #f857a6, #ec4899);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+/* Best list badge */
+.post-entry:has(a[href*="/best/"]) .entry-header::after {
+  content: "⭐ Best List";
+  display: inline-block;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
 
 /* ── FEATURED HERO POST ── */
 .first-entry {
@@ -276,7 +315,28 @@ body { font-family: 'Inter', sans-serif; }
   border-top: 1px solid rgba(108,99,255,0.12);
   color: #999;
   font-size: 0.85rem;
-  padding: 24px 0;
+  padding: 40px 0 24px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.footer a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #f857a6;
+}
+
+.footer::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #6c63ff, #f857a6);
+  margin: 0 auto 24px;
+  border-radius: 2px;
 }
 
 /* ── DARK MODE ── */
