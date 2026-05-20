@@ -16,16 +16,35 @@ ignoreFiles = ["README\\.md"]
   defaultTheme = "auto"
   cover.linkFullImages = true
   cover.responsiveImages = false
+  ShowToc = true
+  TocOpen = false
+
+[params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  minMatchCharLength = 2
+  keys = ["title", "permalink", "summary", "content"]
 
   [params.homeInfoParams]
     Title = "Best AI Tools Reviews 2026"
     Content = "Unbiased reviews and comparisons of the best AI tools for writing, coding, design, and productivity."
+
+  logo = "/logo.svg"
+
+  [params.label]
+    text = "AI Tools Hub"
+    iconSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#lg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6c63ff"/><stop offset="100%" stop-color="#f857a6"/></linearGradient></defs><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M8 12h1m6 0h1"/><circle cx="12" cy="12" r="2" fill="url(#lg)" stroke="none"/></svg>'
+    iconHeight = 40
 
   [[params.socialIcons]]
     name = "rss"
     url = "/index.xml"
 
 [menu]
+  [[menu.main]]
+    name = "🔍 Search"
+    url = "/search/"
+    weight = 0
   [[menu.main]]
     name = "Reviews"
     url = "/reviews/"
@@ -41,3 +60,7 @@ ignoreFiles = ["README\\.md"]
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
