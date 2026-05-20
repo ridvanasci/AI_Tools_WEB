@@ -4,6 +4,10 @@ date: 2026-05-19
 description: "In-depth Otter.ai review after hands-on testing. Pricing, features, pros & cons, and best alternatives."
 tags: ["otter-ai", "ai tools", "review"]
 categories: ["reviews"]
+cover:
+  image: "https://picsum.photos/seed/100/1200/630"
+  alt: "Otter.ai Review"
+  relative: false
 ---
 
 {{< affiliate-disclosure >}}

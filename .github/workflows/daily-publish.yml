@@ -2,10 +2,16 @@ name: Daily Article + Deploy
 
 on:
   schedule:
-    - cron: "30 8 * * *"   # Her gün 11:30 TR (08:30 UTC)
+    - cron: "30 8 * * *"   # Her gün 11:30 TR - Review
+    - cron: "0 9 * * 2,5"  # Salı & Cuma 12:00 TR - Comparison
+    - cron: "0 9 * * 1"    # Pazartesi 12:00 TR - Best List
   push:
-    branches: [master]    # Her push'ta da çalış
-  workflow_dispatch:        # Manuel tetikleme için
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      article_type:
+        description: 'Article type: review, comparison, best'
+        default: 'review'
 
 permissions:
   contents: write
@@ -33,7 +39,17 @@ jobs:
       - name: Generate article
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: python scripts/generate_article.py
+        run: |
+          HOUR=$(date -u +%H)
+          DAY=$(date -u +%u)
+          TYPE="${{ github.event.inputs.article_type }}"
+          if [ "$TYPE" = "comparison" ] || ([ "$HOUR" = "09" ] && ([ "$DAY" = "2" ] || [ "$DAY" = "5" ])); then
+            python scripts/generate_comparison.py
+          elif [ "$TYPE" = "best" ] || ([ "$HOUR" = "09" ] && [ "$DAY" = "1" ]); then
+            python scripts/generate_best.py
+          else
+            python scripts/generate_article.py
+          fi
 
       - name: Commit new article
         run: |

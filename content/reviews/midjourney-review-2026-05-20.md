@@ -4,6 +4,10 @@ date: 2026-05-20
 description: "In-depth Midjourney review after hands-on testing. Pricing, features, pros & cons, and best alternatives."
 tags: ["midjourney", "ai tools", "review"]
 categories: ["reviews"]
+cover:
+  image: "https://picsum.photos/seed/30/1200/630"
+  alt: "Midjourney Review"
+  relative: false
 ---
 
 {{< affiliate-disclosure >}}

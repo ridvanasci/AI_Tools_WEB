@@ -4,6 +4,10 @@ date: 2026-05-19
 description: "In-depth Copy.ai review after hands-on testing. Pricing, features, pros & cons, and best alternatives."
 tags: ["copy-ai", "ai tools", "review"]
 categories: ["reviews"]
+cover:
+  image: "https://picsum.photos/seed/20/1200/630"
+  alt: "Copy.ai Review"
+  relative: false
 ---
 
 {{< affiliate-disclosure >}}

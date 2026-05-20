@@ -14,6 +14,8 @@ ignoreFiles = ["README\\.md"]
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   defaultTheme = "auto"
+  cover.linkFullImages = true
+  cover.responsiveImages = false
 
   [params.homeInfoParams]
     Title = "Best AI Tools Reviews 2026"

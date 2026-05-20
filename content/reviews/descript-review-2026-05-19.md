@@ -4,6 +4,10 @@ date: 2026-05-19
 description: "In-depth Descript review after hands-on testing. Pricing, features, pros & cons, and best alternatives."
 tags: ["descript", "ai tools", "review"]
 categories: ["reviews"]
+cover:
+  image: "https://picsum.photos/seed/90/1200/630"
+  alt: "Descript Review"
+  relative: false
 ---
 
 {{< affiliate-disclosure >}}

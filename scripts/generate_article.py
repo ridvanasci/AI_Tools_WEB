@@ -45,6 +45,17 @@ Rules:
 - Do NOT include frontmatter, just the body content starting with ## What Is
 """
 
+# Her tool için sabit seed — her seferinde aynı görsel
+TOOL_SEEDS = {
+    "writesonic": 10, "copy-ai": 20, "midjourney": 30,
+    "runway-ml": 40, "notion-ai": 50, "perplexity-ai": 60,
+    "elevenlabs": 70, "synthesia": 80, "descript": 90, "otter-ai": 100,
+}
+
+def get_cover_image(slug: str) -> str:
+    seed = TOOL_SEEDS.get(slug, random.randint(1, 500))
+    return f"https://picsum.photos/seed/{seed}/1200/630"
+
 def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9-]", "", text.lower().replace(" ", "-").replace(".", "-"))
 
@@ -61,12 +72,17 @@ def save_article(tool_name: str, slug: str, content: str) -> Path:
     today = datetime.date.today().isoformat()
     year = datetime.date.today().year
 
+    cover_image = get_cover_image(slug)
     frontmatter = f"""---
 title: "{tool_name} Review {year}: Honest Pros, Cons & Pricing"
 date: {today}
 description: "In-depth {tool_name} review after hands-on testing. Pricing, features, pros & cons, and best alternatives."
 tags: ["{slug}", "ai tools", "review"]
 categories: ["reviews"]
+cover:
+  image: "{cover_image}"
+  alt: "{tool_name} Review"
+  relative: false
 ---
 
 {{{{< affiliate-disclosure >}}}}

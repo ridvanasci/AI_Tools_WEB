@@ -2,8 +2,12 @@
 title: "Jasper AI Review 2026: Is It Worth $49/Month?"
 date: 2026-01-01
 description: "Honest Jasper AI review after 30 days of testing. Pricing, features, pros & cons, and best alternatives."
-tags: ["jasper", "ai writing", "content creation", "review"]
+tags: ["jasper", "ai writing", "review"]
 categories: ["reviews"]
+cover:
+  image: "https://picsum.photos/seed/15/1200/630"
+  alt: "Jasper AI Review"
+  relative: false
 ---
 
 {{< affiliate-disclosure >}}
